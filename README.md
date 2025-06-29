@@ -78,7 +78,7 @@ Abre [http://localhost:3000](http://localhost:3000) para ver la app.
 
 ---
 
-## 🧩 Pendiente por implementar (si aplica)
+## 🧩 Pendiente por implementar
 
 - [ ] Edición de tareas/proyectos
 - [ ] Comentarios por tarea
