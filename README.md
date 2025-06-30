@@ -2,6 +2,8 @@
 
 Gestor de tareas construido como prueba técnica, utilizando una arquitectura de microservicios.
 
+![Gestor de Proyectos y Tareas](Gestor de Proyectos y Tareas.png)
+
 ## 🧱 Arquitectura
 
 Este proyecto está dividido en varios microservicios y un frontend, siguiendo los principios de una arquitectura distribuida:
