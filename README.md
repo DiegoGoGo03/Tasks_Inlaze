@@ -2,7 +2,7 @@
 
 Gestor de tareas construido como prueba técnica, utilizando una arquitectura de microservicios.
 
-![Gestor de Proyectos y Tareas](Gestor de Proyectos y Tareas.png)
+![Gestor de Proyectos y Tareas](images/Gestor%20de%20Proyectos%20y%20Tareas.png)
 
 ## 🧱 Arquitectura
 
