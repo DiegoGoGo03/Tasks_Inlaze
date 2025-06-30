@@ -1,10 +1,7 @@
 'use client'
-
 import { useEffect, useState } from 'react'
-
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-
 
 type Project = {
   id: number
@@ -21,11 +18,11 @@ type Task = {
 export default function DashboardPage() {
   const [projects, setProjects] = useState<Project[]>([])
   const [error, setError] = useState('')
+
   // Nuevo estado para el nombre del nuevo proyecto
   const [newProjectName, setNewProjectName] = useState('')
 
-
-  // URLs base para tus servicios (ajusta si son diferentes)
+  // URLs base para tus servicios (ajustar si son diferentes)
   const PROJECTS_API_URL = 'http://localhost:3002/projects';
   const TASKS_API_URL = 'http://localhost:3003/tasks';
 
@@ -60,7 +57,7 @@ export default function DashboardPage() {
     fetchProjects()
   }, [])
 
-  // --- Lógica para agregar un nuevo proyecto ---
+  // Lógica para agregar un nuevo proyecto
   const handleAddProject = async () => {
     if (!newProjectName.trim()) {
       alert('El nombre del proyecto no puede estar vacío');
