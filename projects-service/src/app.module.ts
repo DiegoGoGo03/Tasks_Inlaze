@@ -15,7 +15,7 @@ import { Project } from './projects/project.entity';
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       entities: [Project],
-      synchronize: true,
+      synchronize: false,
     }),
     ProjectsModule,
   ],

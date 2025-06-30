@@ -68,12 +68,14 @@ export default function DashboardPage() {
 
   const handleAddTask = async () => {
     const token = localStorage.getItem('token')
-    if (!newTaskTitle.trim() || !selectedProjectId || !token) return
+    if (!newTaskTitle.trim() || !selectedProjectId || !token) return;
 
     const payload = {
       title: newTaskTitle,
-      project: { id: selectedProjectId }, // ✅ importante que sea un objeto
+      projectId: selectedProjectId, // ✅ importante que sea un objeto
     }
+
+    console.log("Payload enviado:", payload);
 
 
     try {
@@ -88,12 +90,13 @@ export default function DashboardPage() {
           //title: newTaskTitle,
           //project: { id: selectedProjectId },
         //}),
-      })
+      });
       const newTask = await res.json()
       setTasks((prev) => [...prev, newTask])
       setNewTaskTitle('')
-    } catch {
-      alert('Error al agregar tarea')
+    } catch (error) {
+      console.error("Error al agregar tarea:", error);
+      alert('Error al agregar tarea');
     }
   }
 

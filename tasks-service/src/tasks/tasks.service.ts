@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Task } from './task.entity';
 import { Repository } from 'typeorm';
+import { Project } from '../projects/project.entity';
 
 @Injectable()
 export class TasksService {
@@ -9,12 +10,25 @@ export class TasksService {
     @InjectRepository(Task)
     private readonly taskRepository: Repository<Task>,
   ) {}
-  create(task: Partial<Task>) {
+  async create(task: Partial<Task>) {
+
+    console.log("Task recibido en service.create:", task);
+    console.log("projectId en service.create:", task.projectId);
+    
+    if (task.projectId === undefined || task.projectId === null) {
+      throw new BadRequestException('Project ID is required.');
+    }
     const newTask = this.taskRepository.create({
       ...task,
-      project: { id: task.projectId }, // esto asocia el proyecto
+      projectId: task.projectId, // esto asocia el proyecto
     });
-    return this.taskRepository.save(newTask);
+    try {
+      return await this.taskRepository.save(newTask);
+    } catch (error) {
+      console.error("Error al guardar la tarea en DB:", error.message || error);
+      // Puedes relanzar el error o lanzar una excepción más amigable
+      throw error; // Para que el stack trace completo se muestre
+    }
   }
 
   findAll() {
