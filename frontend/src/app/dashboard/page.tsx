@@ -93,7 +93,7 @@ export default function DashboardPage() {
       setNewProjectName(''); // Limpiar el input
       alert('Proyecto agregado con éxito');
       // No es estrictamente necesario fetchProjects() aquí si el backend devuelve el proyecto creado,
-      // pero es una opción de fallback si no estás seguro de la respuesta.
+      // opción de fallback
       // fetchProjects();
     } catch (err: any) {
       console.error("Error al agregar proyecto:", err);
@@ -103,7 +103,7 @@ export default function DashboardPage() {
   }
 
 
-  // CODIGO EXISTENTE PARA TAREAS (lo he dejado como lo tenías)
+  // CODIGO EXISTENTE PARA TAREAS
   const [openModal, setOpenModal] = useState(false)
   const [selectedProjectId, setSelectedProjectId] = useState<number | null>(null)
   const [tasks, setTasks] = useState<Task[]>([])
@@ -145,11 +145,11 @@ export default function DashboardPage() {
     const payload = {
       title: newTaskTitle,
       projectId: selectedProjectId,
-      // Añade otros campos si son obligatorios en tu Task entity o en tu DTO de backend
+      // Añade otros campos si son obligatorios en el Task entity o en el DTO de backend
       // Por ejemplo:
-      description: '', // Valor por defecto si no tienes un input para ello
-      status: 'todo', // Valor por defecto si no tienes un input para ello
-      dueDate: new Date().toISOString().split('T')[0], // Fecha actual como ejemplo
+      description: '', // Valor por defecto si no hay un input para ello
+      status: 'todo', // Valor por defecto si no hay un input para ello
+      dueDate: new Date().toISOString().split('T')[0], // Fecha actual
     }
 
     console.log("Payload enviado:", payload);
